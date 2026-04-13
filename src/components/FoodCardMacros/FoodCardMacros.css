@@ -1,0 +1,10 @@
+.food-card-macros {
+    display: flex;
+    flex-direction: column;
+    align-items: center                                                                                                     ;
+}
+
+.PFC {
+    display: flex;
+    gap: 10px;
+}

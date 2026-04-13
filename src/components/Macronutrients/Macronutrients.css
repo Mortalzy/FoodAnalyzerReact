@@ -1,0 +1,28 @@
+.macronutrients {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    border: 1px solid black;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.proteins,
+.carbohydrates,
+.fats {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 20px;
+    color: white;
+}
+
+.proteins__title,
+.carbohydrates__title,
+.fats__title {
+    text-transform: uppercase;
+    
+} 

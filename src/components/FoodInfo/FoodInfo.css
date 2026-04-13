@@ -1,0 +1,23 @@
+.food-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid black;
+    border-radius: 20px;
+
+    font-size: 20px;
+}
+
+.food-info__total {
+    padding: 5px 10px;
+    background-color: var(--color-green);
+    border-radius: 20px;
+    color: white;
+    border: 1px solid black;
+}
+
+.food-info__delete-all-button{
+    border: none;
+    background-color: transparent;
+}
