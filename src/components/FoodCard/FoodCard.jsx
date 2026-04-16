@@ -1,4 +1,5 @@
 import FoodCardMacros from '../FoodCardMacros/FoodCardMacros'
+import { Trash2 } from "lucide-react";
 import './FoodCard.css'
 
 const FoodCard = (props) => {
@@ -29,7 +30,10 @@ const FoodCard = (props) => {
                 className='food-card__delete-button'
                 onClick={() => deleteCard(id)}
                 >
-                X</button>
+                <div className='food-card__delete-icon'>
+                    <Trash2 size={24}/>
+                </div>
+                </button>
             </div>
         </li>
     )

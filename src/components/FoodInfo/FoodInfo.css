@@ -21,10 +21,20 @@
     
 }
 
+.food-info__icon {
+    transform: translateY(3px);
+}
+
 .food-info__delete-all-button{
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+
     border: none;
     border-radius: 20px;
     background-color: var(--color-danger-soft);
+    align-items: center;
+    justify-content: center;
     color: var(--color-danger);
     font-weight: var(--weight-semibold);
     padding: 5px 10px;

@@ -9,7 +9,7 @@ const FoodCardList = (props) => {
 
     return (
         <div className='wrapper'>
-            <ul className='card-list'>
+            <ul className='food-card-list'>
                 {foodCards.map( (card) => {
                     return (
                         <FoodCard

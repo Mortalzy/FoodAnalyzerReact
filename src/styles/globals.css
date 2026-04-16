@@ -8,8 +8,4 @@ body {
     color: var(--color-text);
 
     line-height: var(--line-height-normal);
-
-    display: flex;
-    margin: 20px auto;
-    justify-content: center;
 }

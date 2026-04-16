@@ -1,3 +1,4 @@
+import {ChevronRight, Trash } from "lucide-react";
 import './FoodInfo.css'
 
 const FoodInfo = (props) => {
@@ -13,7 +14,15 @@ const FoodInfo = (props) => {
             <button 
             className='food-info__delete-all-button'
             onClick={deleteAll}
-            >Delete all &gt;
+            >
+            <span className="food-info__icon">
+                <Trash />
+            </span>
+            Delete all 
+            <span className="food-info__icon">
+                <ChevronRight size={20}/>
+            </span>
+            
             </button>
         </div>
     )

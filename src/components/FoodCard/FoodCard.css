@@ -45,3 +45,7 @@
 
     margin-left: var(--spacing-lg);
 }
+
+.food-card__delete-icon {
+    transform: translateY(3px);
+}

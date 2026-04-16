@@ -4,15 +4,16 @@ import Statistics from "../Statistics/Statistics"
 import FoodInfo from "../FoodInfo/FoodInfo"
 import FoodCardList from "../FoodCardList/FoodCardList"
 import NavigationPanel from "../NavigationPanel/NavigationPanel"
+
 import './FoodAnalyzer.css'
 
 
 const FoodAnalyzer = () => {
 
     const [foodCards, setFoodCards] = useState([
-    {id: 'id-1', title: 'Lasagna', weight: 250, macros: {kcal: 250, proteins: 25, fats: 25, carbs: 25}},
-    {id: 'id-2', title: 'Baked potato' , weight: 300, macros: {kcal: 350, proteins: 25, fats: 25, carbs: 25}},
-    {id: 'id-3', title: 'Steak', weight: 200, macros: {kcal: 200, proteins: 25, fats: 25, carbs: 25}},
+        {id: 'id-1', title: 'Lasagna', weight: 250, macros: {kcal: 250, proteins: 25, fats: 25, carbs: 25}},
+        {id: 'id-2', title: 'Baked potato' , weight: 300, macros: {kcal: 350, proteins: 25, fats: 25, carbs: 25}},
+        {id: 'id-3', title: 'Steak', weight: 200, macros: {kcal: 200, proteins: 25, fats: 25, carbs: 25}},
     ])
 
     const deleteCard = (cardId) => {
@@ -48,10 +49,10 @@ const FoodAnalyzer = () => {
         const bmr = 
             gender === 'Male' 
             ?  10 * weight + 6.25 * height - 5 * age + 5
-            :  10 * weight + 6.25 * height - 5 * age - 16
+            :  10 * weight + 6.25 * height - 5 * age - 161
 
         let dailyCalories = bmr * activityCoefficient
-        let dailyProteins = weight * 1.6
+        let dailyProteins = weight * 2
         let dailyFats = weight * 0.9
         let dailyCarbs = (dailyCalories - dailyProteins * 4 - dailyFats * 9) / 4
 

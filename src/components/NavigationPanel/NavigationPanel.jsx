@@ -1,16 +1,36 @@
 import Button from '../Button/Button'
+import { Calculator, Plus, User } from "lucide-react";
 
 import './NavigationPanel.css'
 
 const NavigationPanel = () => {
     return (
-        <div className="navigation">
-            <Button>Calculate</Button>
+        <nav className="navigation">
+            <Button>
+                <div className='navigation__element'>
+                    <Calculator 
+                    className='navigation__icon'
+                    size={30}
+                    />
+                    Calculate
+                </div>
+                
+            </Button>
             <Button
             className='button__add'
-            >+</Button>
-            <Button>About</Button>
-        </div>
+            >
+                <Plus size={32}/>
+            </Button>
+            <Button>
+                <div className='navigation__element'>
+                    <User
+                    className='navigation__icon'
+                     size={30}
+                    />
+                    About
+                </div>
+            </Button>
+        </nav>
     )
 }
 
