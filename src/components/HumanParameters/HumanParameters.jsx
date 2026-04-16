@@ -1,26 +1,33 @@
 import './HumanParameters.css'
 
-const HumanParameters = () => {
+const HumanParameters = (props) => {
+
+    const {
+        humanParameters,
+    } = props
+
+    const {age, weight, height, gender} = humanParameters
+
     return (
         <div className="human-parameters">
             <div className="human-parameter">
                 <p className="human-parameters__title">Age</p>
-                <p className="human-parameters__value">17.05.2005</p>
+                <p className="human-parameters__value">{age} y.o.</p>
             </div>
 
             <div className="human-parameter">
                 <p className="human-parameters__title">Weight</p>
-                <p className="human-parameters__value">65 kg</p>
+                <p className="human-parameters__value">{weight} kg</p>
             </div>
 
             <div className="human-parameter">
                 <p className="human-parameters__title">Height</p>
-                <p className="human-parameters__value">177 cm</p>
+                <p className="human-parameters__value">{height} cm</p>
             </div>
 
             <div className="human-parameter">
                 <p className="human-parameters__title">Gender</p>
-                <p className="human-parameters__value">Male</p>
+                <p className="human-parameters__value">{gender}</p>
             </div>
             
         </div>

@@ -1,10 +1,15 @@
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: var(--font-family-base);
     font-size: 18px;
-    font-weight: bold;
+    font-weight: var(--weight-regular);
+
+    background-color: var(--color-bg);
+
+    color: var(--color-text);
+
+    line-height: var(--line-height-normal);
 
     display: flex;
     margin: 20px auto;
-    
     justify-content: center;
 }

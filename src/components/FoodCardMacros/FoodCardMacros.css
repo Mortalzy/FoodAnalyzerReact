@@ -4,7 +4,15 @@
     align-items: center                                                                                                     ;
 }
 
+.food-card-macros__calories {
+    font-size: var(--font-size-heading);
+    font-weight: var(--weight-semibold);
+}
+
 .PFC {
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-md);
+
+    color: var(--color-text-soft);
+    font-size: var(--font-size-title);
 }

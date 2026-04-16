@@ -3,16 +3,45 @@
     align-items: center;
     justify-content: space-between;
 
-    border: 1px solid black;
-    border-radius: 20px;
+    border: var(--border);
+    border-radius: var(--border-radius-card);
 
-    padding: 5px 10px;
+    background-color: var(--color-card);
+
+    box-shadow: var(--shadow-card);
+
+    padding: var(--padding-food-card);
 }
 
 .food-card__preview-photo {
-    width: 80px;
-    height: 80px;
-    border: 1px solid black;
-    border-radius: 20px;
+    width: 120px;
+    height: 70px;
+    border: var(--border);
+    border-radius: var(--border-radius-card);
+    margin-right: var(--spacing-lg);
+}
 
+.food-card__right-side,
+.food-card__left-side {
+    display: flex;
+}
+
+.food-card__title {
+    font-size: var(--font-size-heading);
+    font-weight: var(--weight-semibold);
+}
+
+.food-card__grams {
+    color: var(--color-text-soft);
+    font-size: var(--font-size-title);
+}
+
+.food-card__delete-button {
+    border: var(--border);
+    color: var(--color-text-muted);
+    border-radius: var(--border-radius-card);
+    width: 45px;
+    height: 45px;
+
+    margin-left: var(--spacing-lg);
 }

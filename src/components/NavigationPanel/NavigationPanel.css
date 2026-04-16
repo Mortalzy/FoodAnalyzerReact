@@ -1,0 +1,34 @@
+.navigation {
+    display: flex;
+
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-bottom-nav);
+
+    margin-top: auto;
+
+    width: 100%;
+    height: 100px;
+
+    background-color: var(--color-card);
+    border: var(--border);
+    border-radius: var(--border-radius-section);
+    box-shadow: var(--shadow-card);
+}
+
+.button__add {
+    width: 70px;
+    height: 60px;
+
+    border-radius: 45px;
+    font-size: 45px;
+
+    color: white;
+    box-shadow: var(--shadow-button);
+
+    background-color: var(--color-progress-green);
+}

@@ -1,13 +1,36 @@
 import FoodCardMacros from '../FoodCardMacros/FoodCardMacros'
 import './FoodCard.css'
 
-const FoodCard = () => {
+const FoodCard = (props) => {
+    const {
+        foodCard,
+        deleteCard,
+    } = props
+
+    const {id, title, weight, macros} = foodCard
+
     return (
         <li className='food-card'>
-            <div className='food-card__preview-photo'></div>
-            <p className='food-card__title'>Lasagna</p>
-            <FoodCardMacros />
-            <button className='food-card__delete-button'>X</button>
+            <div className='food-card__left-side'>
+                <div className='food-card__preview-photo'></div>
+
+                <div className='food-card__food-info'>
+                    <p className='food-card__title'>{title}</p>
+                    <p className='food-card__grams'>{weight} g</p>
+                </div>
+                
+            </div>
+                
+            <div className='food-card__right-side'>
+                <FoodCardMacros
+                macros={macros} 
+                />
+                <button 
+                className='food-card__delete-button'
+                onClick={() => deleteCard(id)}
+                >
+                X</button>
+            </div>
         </li>
     )
 }

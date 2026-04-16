@@ -3,10 +3,13 @@
     grid-template-columns: 60% 1fr;
     grid-template-rows: 1fr;
 
-    border: 1px solid black;
-    border-radius: 20px;
+    gap: var(--spacing-sm);
+}
 
-    padding: 10px;
+.statistics__header {
+    border: var(--border);
+    background-color: var(--color-card);
+    border-radius: var(--border-radius-section);
 
-    background-color: var(--color-green);
+    box-shadow: var(--shadow-card);
 }

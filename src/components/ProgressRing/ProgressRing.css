@@ -1,7 +1,5 @@
 .progress-ring__wrapper {
-    background-color: white;
-    border-radius: 20px;
-    border: 1px solid black;
+    background-color: transparent;
     position: relative;
     display: flex;
     align-items: center;
@@ -21,20 +19,20 @@
 }
 
 .progress-ring__bg {
-    stroke-width: 16;
-    stroke: gainsboro;
+    stroke-width: 22;
+    stroke: var(--color-progress-track);
 }
 
 .progress-ring__border {
-    stroke-width: 12;
-    stroke: gainsboro;
+    stroke-width: 18;
+    stroke: var(--color-progress-track);
 }
 
 .progress-ring__value {
-    stroke:orange;
-    stroke-width: 8;
+    stroke-width: 13;
+    stroke: var(--color-progress-green);
     stroke-dasharray: 440;
-    stroke-dashoffset: 300;
+    stroke-dashoffset: 100;
 }
 
 .calories-progress {
@@ -46,11 +44,6 @@
 }
 .calories-progress__Kcal,
 .calories-progress__value {
-    font-size: 16px;
-}
-
-.calories-progress__percent {
-    font-size: 28px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    font-size: 26px;
+    font-weight: var(--weight-bold);
 }

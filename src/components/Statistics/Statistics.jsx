@@ -3,14 +3,27 @@ import HumanParameters from '../HumanParameters/HumanParameters'
 import Macronutrients from '../Macronutrients/Macronutrients'
 import './Statistics.css'
 
-const Statistics = () => {
+const Statistics = (props) => {
+
+    const {
+        humanParameters,
+        macros,
+    } = props
+
+    const {dailyCalories} = macros
+
     return (
        <div className='statistics'>
             <header className='statistics__header'>
-                <ProgressRing />
-                <Macronutrients />       
+                <ProgressRing
+                dailyCalories={dailyCalories}
+                />
+                <Macronutrients
+                macros={macros} 
+                />       
             </header>
-            <HumanParameters />
+            <HumanParameters 
+            humanParameters={humanParameters}/>
        </div>
     )
 }

@@ -3,21 +3,29 @@
     align-items: center;
     justify-content: space-between;
 
-    border: 1px solid black;
-    border-radius: 20px;
+    border: var(--border);
+    border-radius: var(--border-radius-section);
+    
+    box-shadow: var(--shadow-soft);
 
     font-size: 20px;
+
+    background-color: var(--color-card);
+
+    padding: var(--padding-toolbar);
 }
 
 .food-info__total {
-    padding: 5px 10px;
-    background-color: var(--color-green);
-    border-radius: 20px;
-    color: white;
-    border: 1px solid black;
+    color: var(--color-text-muted);
+    font-weight: var(--weight-semibold);
+    
 }
 
 .food-info__delete-all-button{
     border: none;
-    background-color: transparent;
+    border-radius: 20px;
+    background-color: var(--color-danger-soft);
+    color: var(--color-danger);
+    font-weight: var(--weight-semibold);
+    padding: 5px 10px;
 }

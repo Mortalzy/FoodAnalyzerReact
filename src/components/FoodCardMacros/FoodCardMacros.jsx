@@ -1,13 +1,20 @@
 import './FoodCardMacros.css'
 
-const FoodCardMacros = () => {
+const FoodCardMacros = (props) => {
+
+    const {
+        macros
+    } = props
+
+    const {kcal, proteins, fats, carbs} = macros
+
     return (
         <div className='food-card-macros'>
-            <p className='food-card-macros__calories'>250 Kcal</p>
+            <p className='food-card-macros__calories'>{kcal} Kcal</p>
             <ul className='PFC'>
-                <li className='PFC_elem'>35 p</li>
-                <li className='PFC_elem'>20 f</li>
-                <li className='PFC_elem'>40 c</li>
+                <li className='PFC_elem'>{proteins}P</li>
+                <li className='PFC_elem'>{fats}F</li>
+                <li className='PFC_elem'>{carbs}C</li>
             </ul>
         </div>
     )
