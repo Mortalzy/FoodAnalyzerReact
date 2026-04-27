@@ -2,31 +2,45 @@ import InputField from '../InputField/InputField'
 import Button from '../Button/Button'
 import OptionCards from '../OptionCards/OptionCards'
 import CalculateFormOptional from '../CalculateFormOptional/CalculateFormOptional'
+import RouterLink from '../RouterLink/RouterLink'
+
 import { Calculator } from "lucide-react";
+import { useState } from 'react'
+
 import './CalculateForm.css'
 
+
 const CalculateForm = () => {
+
+    const [formData, setFormData] = useState({
+        age: 17,
+        weight: 65,
+        height: 177,
+        gender: 'Male',
+        activityCoefficient: 1.2,
+        goal: "Maintain weight",
+        targetWeight: 60,
+        mealsPerDay: '3 meals',
+    })
 
     const genderOptionCards = {
         label: 'Gender',
         cards: [
-            {title: 'Male', isActive: true},
-            {title: 'Female'},
+            {title: 'Male', value: 'Male'},
+            {title: 'Female', value: 'Female'},
         ]
     } 
-    
-    
 
     const activeOptionCards = {
         label: 'Activity level',
         description: 'How active you on a typical day?',
 
         cards: [
-            {title: 'Sedentary', text: 'Little or no exercise'},
-            {title: 'Light', text: '1-3 days/week'},
-            {title: 'Moderate', text: '3-5 days/week', isActive: true},
-            {title: 'Active', text: '6-7 days/week'},
-            {title: 'Very active', text: 'Hard training daily'},
+            {title: 'Sedentary', text: 'Little or no exercise', value: 1.2},
+            {title: 'Light', text: '1-3 days/week', value: 1.375},
+            {title: 'Moderate', text: '3-5 days/week', value: 1.55},
+            {title: 'Active', text: '6-7 days/week', value: 1.725},
+            {title: 'Very active', text: 'Hard training daily', value: 1.9},
         ]
     }
 
@@ -35,46 +49,83 @@ const CalculateForm = () => {
         description: 'What is your main goal?',
 
         cards: [
-        {title: 'Maintain weight', text: 'stay at current weight'},
-        {title: 'Lose weight', text: 'create a calorie deficit'},
-        {title: 'Gain weight', text: 'Create a calorie surplus', isActive: true},
-        
-    ]
-}
+        {title: 'Maintain weight', text: 'stay at current weight', value: 'Maintain weight'},
+        {title: 'Lose weight', text: 'create a calorie deficit', value: 'Lose weight'},
+        {title: 'Gain weight', text: 'Create a calorie surplus', value: "Gain weight"},
+        ]
+    }
+
+    const handleChange = (event) => {
+        const {name, value} = event.target
+
+        setFormData({
+            ...formData,
+            [name]: value,
+        })
+    }
+
+    const updateFormData = (name, value) => {
+        setFormData({
+            ...formData,
+            [name]:value,
+        })
+    }
+    
+    
+
 
     return (
         <div className='calculate-form'>
             <header className="header">
-                <h1 className="header__title">Personal data</h1>
-                <p className='header__text'>Enter your details to get accurate calories recommdendations</p>
+                <div className="header__info">
+                    <h1 className="header__title">Personal data</h1>
+                    <p className='header__text'>Enter your details to get accurate calories recommdendations</p>
+                </div>
+
+                <RouterLink to='/'>
+                    <Button>
+                        X
+                    </Button>
+                </RouterLink>
+                
             </header>
             
             <section className='calculate-form__parameters'>
 
                 <InputField
                 label="Age"
-                value={17}
+                name="age"
+                value={formData.age}
                 suffix="y.o"
                 type="number"
+                onChange={handleChange}
                 />
                 
                 <OptionCards
-                optionCards={genderOptionCards} 
+                value={formData.gender}
+                optionCards={genderOptionCards}
+                onChange={ (newValue) => updateFormData('gender', newValue) }
+                
+                
                 />
                 
                 <InputField
                 label="Height"
-                value={177}
+                name='height'
+                value={formData.height}
                 suffix="cm"
-                type="number" 
+                type="number"
+                onChange={handleChange}
                 />
                 
 
                 <InputField
                 label="Weight"
-                value={65}
+                name='weight'
+                value={formData.weight}
                 suffix="kg"
                 type="number"
+                onChange={handleChange}
                 />
             </section>
 
@@ -82,7 +133,9 @@ const CalculateForm = () => {
             <section className='calculate-form__activity'>
 
                 <OptionCards
-                optionCards={activeOptionCards} 
+                value={formData.activityCoefficient}
+                optionCards={activeOptionCards}
+                onChange={(newValue) => updateFormData('activityCoefficient', newValue)}
                 />
 
             </section>
@@ -90,7 +143,9 @@ const CalculateForm = () => {
             <section className='calculate-form__goal'>
                 
                 <OptionCards 
+                value={formData.goal}
                 optionCards={goalOptionCards}
+                onChange={(newValue) => updateFormData('goal', newValue)}
                 />    
                 
             </section >
@@ -104,8 +159,7 @@ const CalculateForm = () => {
             <section className='calculate-form__buttons'>
                 <Button
                 className='calculate-form__reset-button'
-                >
-                    
+                > 
                     Reset
                 </Button>
 

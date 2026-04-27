@@ -1,9 +1,12 @@
+import Button from '../Button/Button'
 import './OptionCards.css'
 
 const OptionCards = (props) => {
 
     const {
-        optionCards
+        optionCards,
+        value,
+        onChange
     } = props
 
     const {label, description, cards} = optionCards
@@ -14,13 +17,17 @@ const OptionCards = (props) => {
             {description && <span className='option-cards__description'>{description}</span>}
 
             <div className="option-cards__cards">
-                {cards.map( ({title, text, isActive}) => {
+                {cards.map( ({title, text, value: cardValue}) => {
                 return (
-                    <button 
-                    className={`option-card ${isActive ? 'is-active' : ''}`}>
+                    <Button 
+                    className={`option-card ${value === cardValue ? 'is-active' : ''}`}
+                    type="button"
+                    key={cardValue}
+                    onClick={() => onChange(cardValue)}
+                    >
                         <p className="option-card__title">{title}</p>
                         {text && <span className="option-card__text">{text}</span>}
-                    </button>
+                    </Button>
                  )
                 })}
             </div>

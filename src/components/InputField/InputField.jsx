@@ -6,7 +6,9 @@ const InputField = (props) => {
         label,
         suffix,
         type,
+        name,
         value,
+        onChange,
     } = props
     
     return (
@@ -16,7 +18,9 @@ const InputField = (props) => {
                 <input 
                 className="input-field__input"
                 type={type}
+                name={name}
                 value={value}
+                onChange={onChange}
                 />
                 {suffix && <span className="input-field__suffix">{suffix}</span>}
             </div>

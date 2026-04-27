@@ -4,7 +4,6 @@ import Statistics from "../Statistics/Statistics"
 import FoodInfo from "../FoodInfo/FoodInfo"
 import FoodCardList from "../FoodCardList/FoodCardList"
 import NavigationPanel from "../NavigationPanel/NavigationPanel"
-import CalculateForm from "../CalculateForm/CalculateForm"
 
 import './FoodAnalyzer.css'
 
@@ -72,8 +71,8 @@ const FoodAnalyzer = () => {
 
 
     return (
-        <div className="food-analyzer">
-            {/* <Statistics
+        <>
+            <Statistics
             macros={calculateMacros()}
             humanParameters={humanParameters}
             />
@@ -84,11 +83,12 @@ const FoodAnalyzer = () => {
             <FoodCardList
             foodCards={foodCards}
             deleteCard={deleteCard}
-            /> */}
+            />
 
-            <CalculateForm />
             <NavigationPanel />
-        </div>
+        </>
+            
+       
         
     )
 }

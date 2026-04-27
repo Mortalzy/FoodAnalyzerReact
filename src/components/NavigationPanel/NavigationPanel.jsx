@@ -1,4 +1,5 @@
 import Button from '../Button/Button'
+import RouterLink from '../RouterLink/RouterLink';
 import { Calculator, Plus, User } from "lucide-react";
 
 import './NavigationPanel.css'
@@ -6,16 +7,18 @@ import './NavigationPanel.css'
 const NavigationPanel = () => {
     return (
         <nav className="navigation">
-            <Button>
-                <div className='navigation__element'>
-                    <Calculator 
-                    className='navigation__icon'
-                    size={30}
-                    />
-                    Calculate
-                </div>
-                
-            </Button>
+            <RouterLink to='/calculate'>
+                <Button>
+                    <div className='navigation__element'>
+                        <Calculator 
+                        className='navigation__icon'
+                        size={30}
+                        />
+                        Calculate
+                    </div>
+                </Button>
+            </RouterLink>
+            
             <Button
             className='button__add'
             >

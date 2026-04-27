@@ -1,8 +1,20 @@
-import FoodAnalyzer from "./components/FoodAnalyzer/FoodAnalyzer"
+import Router from './Router'
+import AppLayout from './components/AppLayout/AppLayout'
+import CalculatePage from './pages/CalculatePage'
+import MainPage from "./pages/MainPage"
 
 const App = () => {
+  const routes = {
+    '/': MainPage,
+    '/calculate': CalculatePage,
+    '*': () => <div>404 Page not found</div>,
+  }
+
   return (
-    <FoodAnalyzer />
+    <AppLayout>
+        <Router routes={routes}/>
+    </AppLayout>
+    
   )
 }
 
