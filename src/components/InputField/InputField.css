@@ -1,0 +1,31 @@
+.input-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--color-text);
+}
+
+.input-field__label {
+    margin-bottom: 8px;
+    font-weight: var(--weight-semibold);
+}
+
+.input-field__input {
+    border-radius: 8px;
+    border: var(--border);
+    padding: 10px 20px;
+    width: 100%;
+    
+}
+
+.input-field__field {
+    position: relative;
+}
+
+.input-field__suffix {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: var(--color-text-muted);
+}
+

@@ -1,0 +1,51 @@
+.option-cards {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+}
+
+.option-cards__label {
+    font-weight: var(--weight-semibold);
+    font-size: 16px;
+}
+
+.option-cards__description {
+    color: var(--color-text-muted);
+    font-size: 12px;
+}
+
+.option-cards__cards {
+    display: flex;
+    margin-top: 10px;
+}
+
+.option-card {
+    width: 100%;
+    border-radius: 32px;
+    border: var(--border);
+    padding: 6px;
+
+}
+
+.option-card.is-active {
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+
+    .option-card__text {
+        color: var(--color-primary-dark);
+    }
+}
+
+.option-card__title {
+    font-weight: var(--weight-bold);
+    font-size: 14px;
+}
+
+.option-card__text {
+    font-size: 10px;
+    color: var(--color-text-muted);
+}
+
+
+

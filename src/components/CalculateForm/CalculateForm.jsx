@@ -1,22 +1,47 @@
 import InputField from '../InputField/InputField'
+import Button from '../Button/Button'
 import OptionCards from '../OptionCards/OptionCards'
+import CalculateFormOptional from '../CalculateFormOptional/CalculateFormOptional'
+import { Calculator } from "lucide-react";
 import './CalculateForm.css'
 
 const CalculateForm = () => {
 
-    const genderOptionCards =  [
-        {label: 'Male'},
-        {label: 'Female'},
-    ]
+    const genderOptionCards = {
+        label: 'Gender',
+        cards: [
+            {title: 'Male', isActive: true},
+            {title: 'Female'},
+        ]
+    } 
+    
+    
 
-    const activeOptionCards = [
-        {label: 'Sedentary', description: 'Little or no exercise'},
-        {label: 'Light', description: '1-3 days/week'},
-        {label: 'Moderate', description: '3-5 days/week'},
-        {label: 'Active', description: '6-7 days/week'},
-        {label: 'Very active', description: 'Hard training daily'},
+    const activeOptionCards = {
+        label: 'Activity level',
+        description: 'How active you on a typical day?',
+
+        cards: [
+            {title: 'Sedentary', text: 'Little or no exercise'},
+            {title: 'Light', text: '1-3 days/week'},
+            {title: 'Moderate', text: '3-5 days/week', isActive: true},
+            {title: 'Active', text: '6-7 days/week'},
+            {title: 'Very active', text: 'Hard training daily'},
+        ]
+    }
+
+    const goalOptionCards = {
+        label: 'Goal',
+        description: 'What is your main goal?',
+
+        cards: [
+        {title: 'Maintain weight', text: 'stay at current weight'},
+        {title: 'Lose weight', text: 'create a calorie deficit'},
+        {title: 'Gain weight', text: 'Create a calorie surplus', isActive: true},
+        
     ]
-Light
+}
+
     return (
         <div className='calculate-form'>
             <header className="header">
@@ -55,10 +80,6 @@ Light
 
             
             <section className='calculate-form__activity'>
-                <div className="activity__text-content">
-                    <h2 className='activity__title'>Actiivity level</h2>
-                    <p className='activity__text'>How active are you on a typical day?</p>
-                </div>
 
                 <OptionCards
                 optionCards={activeOptionCards} 
@@ -67,21 +88,34 @@ Light
             </section>
 
             <section className='calculate-form__goal'>
-                <div className="goal__text-content">
-                    <h2 className="goal__title">Goal</h2>
-                    <p className="goal__text">What is your main goal?</p>
-                </div>
+                
+                <OptionCards 
+                optionCards={goalOptionCards}
+                />    
+                
+            </section >
 
-                <div className="goal__buttons">
-                    
-                </div>
+            <section className='calculate-form__optional'>
+                
+                <CalculateFormOptional />
+
             </section>
-            
 
-            
+            <section className='calculate-form__buttons'>
+                <Button
+                className='calculate-form__reset-button'
+                >
+                    
+                    Reset
+                </Button>
 
-
-
+                <Button
+                className='calculate-form__calculate-button'
+                >
+                    <Calculator />
+                    Calculate calories
+                </Button>
+            </section>
         </div>
     )
 }
