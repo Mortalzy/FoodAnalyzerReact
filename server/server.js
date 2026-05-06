@@ -86,6 +86,12 @@ JSON format:
 
     const data = await response.json()
 
+    if (!response.ok) {
+      console.error(data)
+      alert(data.error || 'Something went wrong')
+      return
+    }
+
     fs.unlinkSync(imagePath)
 
     const aiText = data.choices[0].message.content

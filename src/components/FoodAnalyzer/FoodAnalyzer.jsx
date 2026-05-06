@@ -30,6 +30,7 @@ const FoodAnalyzer = () => {
 
         if(isConfirmed) {
             setFoodCards([])
+            localStorage.setItem('foodCards', JSON.stringify(foodCards))
         }
     }
 
@@ -92,7 +93,7 @@ const FoodAnalyzer = () => {
             deleteCard={deleteCard}
             />
 
-            <NavigationPanel />
+            <NavigationPanel/>
         </>
             
        
