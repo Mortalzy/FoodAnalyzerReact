@@ -49,7 +49,12 @@ const FoodAnalyzer = () => {
         gender: 'Male',
     }
 
-    const dailyMacros = JSON.parse(localStorage.getItem('dailyMacros'))
+    const dailyMacros = JSON.parse(localStorage.getItem('dailyMacros')) ?? {
+        dailyCalories: 0,
+        dailyProteins: 0,
+        dailyFats: 0,
+        dailyCarbs: 0,
+    }
 
     const calculateSumParametersOfCards = () => {
         const totalCalories = foodCards.reduce( (total, {calories}) => {

@@ -128,6 +128,6 @@ JSON format:
   }
 })
 
-app.listen(3001, () => {
+app.listen(process.env.PORT, () => {
   console.log('Server running on http://localhost:3001')
 })

@@ -9,7 +9,9 @@ const ProgressRing = (props) => {
 
     const radius = 90
     const lengthOfCircle = 2 * Math.PI * radius 
-    const percent = Math.min((totalCalories / dailyCalories) * 100, 100)
+    const percent = dailyCalories !== 0 
+        ? Math.min((totalCalories / dailyCalories) * 100, 100)
+        : 0
     const strokeDashoffset = lengthOfCircle - (lengthOfCircle * percent / 100)   
         
 
@@ -44,7 +46,6 @@ const ProgressRing = (props) => {
                 r='90'
                 strokeDasharray={lengthOfCircle}
                 strokeDashoffset={strokeDashoffset}
-                
                 >
                 </circle>
             </svg>
