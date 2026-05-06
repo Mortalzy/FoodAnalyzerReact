@@ -1,0 +1,40 @@
+.human-parameters {
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--padding-section);
+
+    justify-content: space-between;
+
+    background-color: var(--color-primary-soft);
+    border: var(--border);
+    border-radius: var(--border-radius-section);
+    box-shadow: var(--shadow-soft);
+
+    color: var(--color-text);
+
+    font-size: var(--font-size-title);
+
+    line-height: 3;
+}
+
+
+
+.human-parameter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.human-parameter__left {
+    display: flex;
+    gap: 12px;
+}
+
+.human-parameter__icon {
+    color: var(--color-primary-dark);
+}
+
+.human-parameter:not(:last-child) {
+    border-bottom: var(--border);
+}

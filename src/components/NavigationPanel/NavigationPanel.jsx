@@ -1,0 +1,43 @@
+import Button from '../Button/Button'
+import RouterLink from '../RouterLink/RouterLink';
+import { Calculator, Plus, User } from "lucide-react";
+
+import './NavigationPanel.css'
+
+const NavigationPanel = () => {
+    return (
+        <nav className="navigation">
+            <RouterLink to='/calculate'>
+                <Button>
+                    <div className='navigation__element'>
+                        <Calculator 
+                        className='navigation__icon'
+                        size={30}
+                        />
+                        Calculate
+                    </div>
+                </Button>
+            </RouterLink>
+            
+            <RouterLink to='/add-food'>
+                <Button
+                className='button__add'
+                >
+                    <Plus size={32}/>
+                </Button>
+            </RouterLink>
+            
+            <Button>
+                <div className='navigation__element'>
+                    <User
+                    className='navigation__icon'
+                     size={30}
+                    />
+                    About
+                </div>
+            </Button>
+        </nav>
+    )
+}
+
+export default NavigationPanel

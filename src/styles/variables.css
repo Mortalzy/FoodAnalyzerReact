@@ -1,0 +1,73 @@
+:root {
+  --color-bg: #efeef3;
+  --color-surface: #f8f8f9;
+  --color-card: #ffffff;
+  --color-border: #e3e5ea;
+
+  --border: 1px solid var(--color-border);
+
+  --color-text: #1c1f28;
+  --color-text-muted: #6f7684;
+  --color-text-soft: #9aa1ad;
+
+  --color-primary: #8fd19e;
+  --color-primary-hover: #74be88;
+  --color-primary-dark: #578f66;
+  --color-primary-light: #bfe7c8;
+  --color-primary-soft: #eef8f0;
+
+  --color-progress-track: #e6e6e8;
+  --color-progress-orange: #f5a623;
+  --color-progress-lime: #c6d85a;
+  --color-progress-green: #69be8b;
+
+  --color-danger: #d95c5c;
+  --color-danger-soft: #fbeaea;
+
+  --shadow-soft: 0 8px 24px rgba(24, 31, 40, 0.08);
+  --shadow-card: 0 10px 30px rgba(24, 31, 40, 0.10);
+  --shadow-button: 0 6px 18px rgba(24, 31, 40, 0.12);
+
+  --border-radius-button: 14px;
+  --border-radius-card: 18px;
+  --border-radius-section: 24px;
+  --border-radius-container: 32px;
+  --border-radius-round: 999px;
+
+  
+  --padding-container: 24px;
+  --padding-section: 24px;
+  --padding-card: 16px;
+  --padding-food-card: 16px 18px;
+  --padding-toolbar: 14px 18px;
+  --padding-button: 12px 18px;
+  --padding-button-large: 14px 22px;
+  --padding-input: 12px 16px;
+  --padding-bottom-nav: 16px 24px;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+  --spacing-4xl: 40px;
+
+  --font-size-caption: 12px;
+  --font-size-small: 14px;
+  --font-size-body: 16px;
+  --font-size-title: 20px;
+  --font-size-heading: 28px;
+  --font-size-display: 36px;
+
+  --font-family-base: "Manrope", sans-serif;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.4;
+}

@@ -1,0 +1,15 @@
+.statistics {
+    display: grid;
+    grid-template-columns: 60% 1fr;
+    grid-template-rows: 1fr;
+
+    gap: var(--spacing-sm);
+}
+
+.statistics__header {
+    border: var(--border);
+    background-color: var(--color-card);
+    border-radius: var(--border-radius-section);
+
+    box-shadow: var(--shadow-card);
+}

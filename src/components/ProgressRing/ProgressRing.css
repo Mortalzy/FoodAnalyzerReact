@@ -1,0 +1,48 @@
+.progress-ring__wrapper {
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring__bg,
+.progress-ring__border,
+.progress-ring__value {
+    fill: none;
+    stroke-linecap: round;
+}
+
+.progress-ring__bg {
+    stroke-width: 22;
+    stroke: var(--color-progress-track);
+}
+
+.progress-ring__border {
+    stroke-width: 18;
+    stroke: var(--color-progress-track);
+}
+
+.progress-ring__value {
+    stroke-width: 13;
+    stroke: var(--color-progress-green);
+    
+}
+
+.calories-progress {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+.calories-progress__Kcal,
+.calories-progress__value {
+    font-size: 26px;
+    font-weight: var(--weight-bold);
+}
