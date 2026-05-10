@@ -5,7 +5,7 @@ const AddFoodPage = () => {
     return (
         <>
             <AddFood />
-            <NavigationPanel />
+            <NavigationPanel colorButton='#5f5ce6'/>
         </>
     )
 }

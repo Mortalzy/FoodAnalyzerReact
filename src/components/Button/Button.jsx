@@ -7,12 +7,18 @@ const Button = (props) => {
         type='button',
         onClick,
         children,
+        colorButton
     } = props
+
     return (
         <button 
-        className={`button ${className}`}
+        className={`button button-- ${className}`}
         type={type}
         onClick={onClick}
+        style={ {
+            backgroundColor: colorButton
+        }}
+        
         >
             {children}
         </button>

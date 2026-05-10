@@ -3,8 +3,9 @@ import Button from '../Button/Button'
 import OptionCards from '../OptionCards/OptionCards'
 import CalculateFormOptional from '../CalculateFormOptional/CalculateFormOptional'
 import RouterLink from '../RouterLink/RouterLink'
+import CloseButton from '../CloseButton/CloseButton'
 
-import { Calculator, X } from "lucide-react";
+import { Calculator } from "lucide-react";
 import { useState } from 'react'
 
 import './CalculateForm.css'
@@ -134,13 +135,7 @@ const CalculateForm = () => {
                     <p className='header__text'>Enter your details to get accurate calories recommdendations</p>
                 </div>
 
-                <RouterLink to='/'>
-                    <Button>
-                        <X
-                        size={30}
-                        />
-                    </Button>
-                </RouterLink>
+                <CloseButton />
                 
             </header>
             

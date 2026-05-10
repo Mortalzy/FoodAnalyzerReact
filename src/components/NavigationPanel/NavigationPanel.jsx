@@ -4,7 +4,12 @@ import { Calculator, Plus, User } from "lucide-react";
 
 import './NavigationPanel.css'
 
-const NavigationPanel = () => {
+const NavigationPanel = (props) => {
+
+    const {
+        colorButton
+    } = props
+
     return (
         <nav className="navigation">
             <RouterLink to='/calculate'>
@@ -22,6 +27,7 @@ const NavigationPanel = () => {
             <RouterLink to='/add-food'>
                 <Button
                 className='button__add'
+                colorButton={colorButton}
                 >
                     <Plus size={26}/>
                 </Button>

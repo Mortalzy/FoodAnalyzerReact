@@ -2,6 +2,7 @@ import { ImagePlus, Upload, Check, Lightbulb, MessageCircle, Leaf, Smile, Heart,
 import Button from '../Button/Button'
 import RouterLink from '../RouterLink/RouterLink'
 import Loading from '../Loading/Loading'
+import CloseButton from '../CloseButton/CloseButton'
 import { useState } from 'react'
 import './AddFood.css'
 
@@ -101,11 +102,7 @@ const AddFood = () => {
           </div>
         </div>
 
-        <RouterLink to="/">
-            <Button className="add-food-page__back-button">
-              ←
-            </Button>
-          </RouterLink>
+        <CloseButton />
       </header>
 
       <main className="add-food-page__content">
