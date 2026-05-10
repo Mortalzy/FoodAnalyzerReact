@@ -8,7 +8,7 @@
     margin-top: auto;
 
     width: 100%;
-    height: 100px;
+    height: 90px;
 
     color: var(--color-text);
 
@@ -22,8 +22,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
-    font-size: var(--font-size-heading);
+    gap: 14px;
+    font-size: var(--font-size-header);
 }
 
 .navigation__icon {
@@ -31,11 +31,10 @@
 }
 
 .button__add {
-    width: 70px;
-    height: 60px;
+    width: 65px;
+    height: 55px;
 
     border-radius: 45px;
-    font-size: 45px;
 
     color: white;
     box-shadow: var(--shadow-button);

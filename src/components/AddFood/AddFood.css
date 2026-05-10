@@ -2,9 +2,11 @@
   background: var(--color-card);
   position: relative;
   border: 1px solid var(--color-border);
-  border-radius: 24px;
+  border-radius: var(--border-radius-container);
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(28, 31, 40, 0.08);
+  box-shadow: var(--shadow-soft);
+  font-size: var(--font-size-text);
+  height: 100%;
 }
 
 .upload-box__preview {
@@ -19,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 28px 32px;
-  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-header);
 }
 
 .add-food-page__header-left {
@@ -45,12 +47,13 @@
 
 .add-food-page__title {
   margin: 0;
-  font-size: 28px;
+  font-size: var(--font-size-header);
   color: var(--color-text);
 }
 
 .add-food-page__subtitle {
   margin: 6px 0 0;
+  font-size: var(--font-size-text);
   color: var(--color-text-muted);
 }
 
@@ -58,7 +61,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  padding: 44px 48px;
+  padding: 10px 48px;
 }
 
 .upload-box {
@@ -96,12 +99,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: var(--font-size-header);
 }
 
 .upload-box__title {
   margin: 24px 0 12px;
-  font-size: 24px;
+  font-size: var(--font-size-header);
 }
 
 .upload-box__text {
@@ -147,7 +150,7 @@
 .comment-header__title {
   margin: 0;
   color: var(--color-text);
-  font-size: 22px;
+  font-size: var(--font-size-title);
 }
 
 .comment-header__title span {
@@ -156,18 +159,20 @@
 }
 
 .comment-header__text {
-  margin: 14px 0 28px;
+  margin: 10px 0;
   color: var(--color-text-muted);
   line-height: 1.5;
+  font-size: var(--font-size-text);
 }
 
 .comment-field {
   position: relative;
+  margin-top: 10px;
 }
 
 .comment-field__textarea {
   width: 100%;
-  min-height: 170px;
+  min-height: 150px;
   padding: 20px;
   resize: none;
   border: 1px solid var(--color-border);
@@ -191,8 +196,8 @@
 }
 
 .tips-card {
-  margin-top: 28px;
-  padding: 24px;
+  margin-top: 10px;
+  padding: 20px;
   border-radius: 18px;
   background: #f3f0ff;
   border: 1px solid #ddd8ff;
@@ -201,6 +206,7 @@
 .tips-card__title {
   margin: 0 0 18px;
   color: #5f5ce6;
+  font-size: var(--font-size-title);
 }
 
 .tips-card__list {
@@ -211,12 +217,14 @@
   padding: 0;
   list-style: none;
   color: var(--color-text);
+  font-size: var(--font-size-text)
 }
 
 .tips-card__list li {
   display: flex;
   align-items: center;
   gap: 12px;
+  ;
 }
 
 .add-food-page__footer {

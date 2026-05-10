@@ -7,7 +7,14 @@ const ProgressRing = (props) => {
         totalCalories,
     } = props
 
-    const radius = 90
+    const width = 180
+    const height = 180
+
+    const cx = width / 2
+    const cy = height / 2
+
+    const radius = 72
+
     const lengthOfCircle = 2 * Math.PI * radius 
     const percent = dailyCalories !== 0 
         ? Math.min((totalCalories / dailyCalories) * 100, 100)
@@ -19,31 +26,31 @@ const ProgressRing = (props) => {
         <div className='progress-ring__wrapper'>
             <svg 
             className="progress-ring"
-            width='220'
-            height='220'
+            width={width}
+            height={height}
             >
 
                 <circle 
                 className="progress-ring__bg"
-                cx='110'
-                cy='110'
-                r='90'
+                cx={cx}
+                cy={cy}
+                r={radius}
                 >
                 </circle>
 
                 <circle 
                 className="progress-ring__border"
-                cx='110'
-                cy='110'
-                r='90'
+                cx={cx}
+                cy={cy}
+                r={radius}
                 >
                 </circle>
 
                 <circle 
                 className="progress-ring__value"
-                cx='110'
-                cy='110'
-                r='90'
+                cx={cx}
+                cy={cy}
+                r={radius}
                 strokeDasharray={lengthOfCircle}
                 strokeDashoffset={strokeDashoffset}
                 >

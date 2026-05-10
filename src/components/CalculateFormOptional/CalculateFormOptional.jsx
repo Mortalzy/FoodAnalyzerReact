@@ -15,7 +15,8 @@ const CalculateFormOptional = (props) => {
     return (
         <div className='optional'>
             <header className='optional__header'>
-                <Home className='optional__icon'/>
+                <Home size={20}
+                className='optional__icon'/>
                 <p className='optional__title'>Optional</p>
             </header>
         

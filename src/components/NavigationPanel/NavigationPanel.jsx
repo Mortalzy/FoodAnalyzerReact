@@ -23,7 +23,7 @@ const NavigationPanel = () => {
                 <Button
                 className='button__add'
                 >
-                    <Plus size={32}/>
+                    <Plus size={26}/>
                 </Button>
             </RouterLink>
             
@@ -31,7 +31,7 @@ const NavigationPanel = () => {
                 <div className='navigation__element'>
                     <User
                     className='navigation__icon'
-                     size={30}
+                     size={28}
                     />
                     About
                 </div>

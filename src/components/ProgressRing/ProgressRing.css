@@ -19,17 +19,17 @@
 }
 
 .progress-ring__bg {
-    stroke-width: 22;
-    stroke: var(--color-progress-track);
-}
-
-.progress-ring__border {
     stroke-width: 18;
     stroke: var(--color-progress-track);
 }
 
+.progress-ring__border {
+    stroke-width: 15;
+    stroke: var(--color-progress-track);
+}
+
 .progress-ring__value {
-    stroke-width: 13;
+    stroke-width: 11;
     stroke: var(--color-progress-green);
     
 }
@@ -43,6 +43,6 @@
 }
 .calories-progress__Kcal,
 .calories-progress__value {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: var(--weight-bold);
 }

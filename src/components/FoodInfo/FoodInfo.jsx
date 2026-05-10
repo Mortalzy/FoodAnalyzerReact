@@ -16,7 +16,7 @@ const FoodInfo = (props) => {
             onClick={deleteAll}
             >
             <span className="food-info__icon">
-                <Trash />
+                <Trash size={20}/>
             </span>
             Delete all 
             <span className="food-info__icon">

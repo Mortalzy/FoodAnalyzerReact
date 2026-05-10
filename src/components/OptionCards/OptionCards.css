@@ -6,12 +6,12 @@
 
 .option-cards__label {
     font-weight: var(--weight-semibold);
-    font-size: 16px;
+    font-size: var(--font-size-text);
 }
 
 .option-cards__description {
     color: var(--color-text-muted);
-    font-size: 12px;
+    font-size: var(--font-size-descr);
 }
 
 .option-cards__cards {
@@ -22,9 +22,14 @@
 .option-card {
     width: 100%;
     border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border: var(--border);
     padding: 6px;
-
+    gap: 2px;
+    
 }
 
 .option-card.is-active {
@@ -39,12 +44,14 @@
 
 .option-card__title {
     font-weight: var(--weight-bold);
-    font-size: 14px;
+    font-size: var(--font-size-text);
+    margin: 0;
 }
 
 .option-card__text {
-    font-size: 10px;
+    font-size: var(--font-size-descr);
     color: var(--color-text-muted);
+    margin: 0;
 }
 
 

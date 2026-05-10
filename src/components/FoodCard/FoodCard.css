@@ -14,11 +14,11 @@
 }
 
 .food-card__preview-photo {
-    width: 120px;
-    height: 70px;
+    width: 100px;
+    height: 60px;
     border: var(--border);
     border-radius: var(--border-radius-card);
-    margin-right: var(--spacing-lg);
+    margin-right: 16px;
     overflow: hidden;
 }
 
@@ -35,13 +35,13 @@
 }
 
 .food-card__title {
-    font-size: var(--font-size-heading);
+    font-size: var(--font-size-header);
     font-weight: var(--weight-semibold);
 }
 
 .food-card__grams {
-    color: var(--color-text-soft);
     font-size: var(--font-size-title);
+    color: var(--color-text-soft);
 }
 
 .food-card__delete-button {
@@ -51,7 +51,7 @@
     width: 45px;
     height: 45px;
 
-    margin-left: var(--spacing-lg);
+    margin-left: 16px;
 }
 
 .food-card__delete-icon {

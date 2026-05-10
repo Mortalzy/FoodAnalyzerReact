@@ -1,14 +1,15 @@
 .optional {
     background-color: var(--color-primary-soft);
-    padding: 24px;
+    padding: 20px;
     border-radius: var(--border-radius-section);
+    font-size: var(--font-size-text);
 }
 
 .optional__header {
     display: flex;
     gap: 10px;
     color: var(--color-primary-hover);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 

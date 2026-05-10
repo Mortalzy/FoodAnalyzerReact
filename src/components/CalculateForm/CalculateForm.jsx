@@ -4,7 +4,7 @@ import OptionCards from '../OptionCards/OptionCards'
 import CalculateFormOptional from '../CalculateFormOptional/CalculateFormOptional'
 import RouterLink from '../RouterLink/RouterLink'
 
-import { Calculator } from "lucide-react";
+import { Calculator, X } from "lucide-react";
 import { useState } from 'react'
 
 import './CalculateForm.css'
@@ -136,7 +136,9 @@ const CalculateForm = () => {
 
                 <RouterLink to='/'>
                     <Button>
-                        X
+                        <X
+                        size={30}
+                        />
                     </Button>
                 </RouterLink>
                 

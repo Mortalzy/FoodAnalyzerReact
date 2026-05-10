@@ -5,13 +5,13 @@
 }
 
 .food-card-macros__calories {
-    font-size: var(--font-size-heading);
+    font-size: var(--font-size-header);
     font-weight: var(--weight-semibold);
 }
 
 .PFC {
     display: flex;
-    gap: var(--spacing-md);
+    gap: 8px;
 
     color: var(--color-text-soft);
     font-size: var(--font-size-title);

@@ -4,6 +4,7 @@ import Statistics from "../Statistics/Statistics"
 import FoodInfo from "../FoodInfo/FoodInfo"
 import FoodCardList from "../FoodCardList/FoodCardList"
 import NavigationPanel from "../NavigationPanel/NavigationPanel"
+import { FoodCardsContext } from "../../context/FoodCardsContext"
 
 import './FoodAnalyzer.css'
 
@@ -33,8 +34,6 @@ const FoodAnalyzer = () => {
             localStorage.setItem('foodCards', JSON.stringify(foodCards))
         }
     }
-
-    
 
     useEffect( () => {
         localStorage.setItem('foodCards', JSON.stringify(foodCards))

@@ -33,7 +33,6 @@
   --border-radius-section: 24px;
   --border-radius-container: 32px;
   --border-radius-round: 999px;
-
   
   --padding-container: 24px;
   --padding-section: 24px;
@@ -45,21 +44,11 @@
   --padding-input: 12px 16px;
   --padding-bottom-nav: 16px 24px;
 
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 12px;
-  --spacing-lg: 16px;
-  --spacing-xl: 20px;
-  --spacing-2xl: 24px;
-  --spacing-3xl: 32px;
-  --spacing-4xl: 40px;
+  --font-size-descr: 12px;
+  --font-size-text: 16px;
+  --font-size-title: 18px;
+  --font-size-header: 22px;
 
-  --font-size-caption: 12px;
-  --font-size-small: 14px;
-  --font-size-body: 16px;
-  --font-size-title: 20px;
-  --font-size-heading: 28px;
-  --font-size-display: 36px;
 
   --font-family-base: "Manrope", sans-serif;
 
