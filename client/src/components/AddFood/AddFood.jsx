@@ -1,6 +1,5 @@
 import { ImagePlus, Upload, Check, Lightbulb, MessageCircle, Leaf, Smile, Heart, Star } from 'lucide-react'
 import Button from '../Button/Button'
-import RouterLink from '../RouterLink/RouterLink'
 import Loading from '../Loading/Loading'
 import CloseButton from '../CloseButton/CloseButton'
 import { useState } from 'react'
@@ -8,7 +7,6 @@ import './AddFood.css'
 
 const AddFood = () => {
     const [comment, setComment] = useState('')
-
     const commentLength = comment.length
 
     const handleCommentChange = (event) => {
@@ -35,52 +33,6 @@ const AddFood = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     const handleAnalyzeFood = async () => {
-      if (!image) {
-        alert('Choose image first')
-        return
-      }
-
-      const formData = new FormData()
-      formData.append('image', image)
-      formData.append('comment', comment)
-
-      setIsLoading(true)
-
-      try {
-        const response = await fetch('http://localhost:3001/api/analyze-food', {
-          method: 'POST',
-          body: formData,
-        })
-
-        
-        const result = await response.json()
-
-        const newFoodCard = {
-          id: crypto.randomUUID(),
-          foodImg: result.foodImg,
-          title: result.title,
-          weight: result.weight,
-          calories: result.calories,
-          proteins: result.proteins,
-          fats: result.fats,
-          carbs: result.carbs,
-          description: result.description,
-          confidence: result.confidence
-        }
-
-        const savedCards = JSON.parse(localStorage.getItem('foodCards')) || []
-
-        const updatedCards = [newFoodCard,...savedCards]
-
-        localStorage.setItem('foodCards', JSON.stringify(updatedCards))
-        
-
-        console.log('RESULT:', result)
-      } catch (error) {
-        console.error(error)
-      } finally {
-        setIsLoading(false)
-      }
     }
 
 
