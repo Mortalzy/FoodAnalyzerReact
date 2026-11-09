@@ -4,41 +4,19 @@ import Statistics from "../Statistics/Statistics"
 import FoodInfo from "../FoodInfo/FoodInfo"
 import FoodCardList from "../FoodCardList/FoodCardList"
 import NavigationPanel from "../NavigationPanel/NavigationPanel"
-import { FoodCardsContext } from "../../context/FoodCardsContext"
+import useFood from "../../hooks/useFood.js" 
 
 import './FoodAnalyzer.css'
 
 
 const FoodAnalyzer = () => {
+    const {
+        foodCards,
+        deleteCard,
+        deleteAll,
+        addCard,
+    } = useFood()
 
-    const [foodCards, setFoodCards] = useState( () => {
-        const storageFoodCards = JSON.parse(localStorage.getItem('foodCards')) ?? []
-        return storageFoodCards
-    })
-
-    const deleteCard = (cardId) => {
-        if (foodCards) {
-            const filteredCards = foodCards.filter( ({id}) => cardId !== id)
-
-            setFoodCards(filteredCards)
-
-            localStorage.setItem('foodCards', JSON.stringify(filteredCards))
-        }
-    }
-
-    const deleteAll = () => {
-        const isConfirmed = confirm('Are you really want to delete all?')
-
-        if(isConfirmed) {
-            setFoodCards([])
-            localStorage.setItem('foodCards', JSON.stringify(foodCards))
-        }
-    }
-
-    useEffect( () => {
-        localStorage.setItem('foodCards', JSON.stringify(foodCards))
-    }, [foodCards])
-    
     const totalCards = foodCards.length
 
     const humanParameters = JSON.parse(localStorage.getItem('humanParameters')) ?? {

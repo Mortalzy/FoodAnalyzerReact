@@ -65,7 +65,7 @@
 }
 
 .upload-box {
-  min-height: 420px;
+  height: 420px;
   border: 2px dashed #cfd0ff;
   border-radius: 22px;
   background: linear-gradient(180deg, #fbfbff 0%, #ffffff 100%);

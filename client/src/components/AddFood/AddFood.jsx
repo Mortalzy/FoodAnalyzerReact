@@ -32,7 +32,55 @@ const AddFood = () => {
 
     const [isLoading, setIsLoading] = useState(false)
 
+    const fileToDataUrl = (file) => {
+      return new Promise((resolve, reject) => {
+        const fileReader = new FileReader()
+
+        fileReader.onload = () => {
+          resolve(fileReader.result)
+        }
+
+        fileReader.onerro = () => {
+          reject(fileReader.error)
+        }
+        fileReader.readAsDataURL(file)
+      })
+    }
+
+    const openRouterApiKey = ''
+
+    const prompt = `Дай КБЖУ этого блюда. ${comment}` 
+
+    const fetchToOpenRouter = async (imageUrl) => {
+      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${openRouterApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'openrouter/free',
+          messages: [
+            { role: 'user',
+              content: [
+                {type: 'text', text: prompt},
+                {type: 'image_url', image_url: {url: imageUrl}}
+              ]},
+          ],
+        }),
+      })
+
+      const data = await response.json()
+
+      return data.choices[0].message.content
+    }
+
     const handleAnalyzeFood = async () => {
+      const imageUrl = await fileToDataUrl(image)
+
+      const answer = await fetchToOpenRouter(imageUrl)
+
+      console.log(answer)
     }
 
 
