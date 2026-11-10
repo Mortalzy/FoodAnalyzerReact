@@ -1,14 +1,18 @@
 import './Macronutrients.css'
+import { useMacros } from '../../context/MacrosContext'
 
 const Macronutrients = (props) => {
 
     const {
-        macros,
-        foodTotals,
-    } = props
-
-    const {dailyProteins, dailyFats, dailyCarbs} = macros
-    const {totalProteins, totalFats, totalCarbs} = foodTotals
+        totalCalories,
+        totalProteins,
+        totalFats,
+        totalCarbs,
+        dailyCalories,
+        dailyProteins,
+        dailyFats,
+        dailyCarbs,
+    } = useMacros()
 
     return (
         <div className="macronutrients">

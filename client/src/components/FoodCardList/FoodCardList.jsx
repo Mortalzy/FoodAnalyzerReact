@@ -1,12 +1,14 @@
 import FoodCard from '../FoodCard/FoodCard'
 import './FoodCardList.css'
 
-const FoodCardList = (props) => {
+import { useContext } from 'react'
+import { FoodCardsContext } from '../../context/FoodCardsContext'
+
+const FoodCardList = () => {
     const {
         foodCards,
         deleteCard
-    } = props
-
+    } = useContext(FoodCardsContext)
     return (
         <div className='wrapper'>
             <ul className='food-card-list'>
@@ -17,10 +19,8 @@ const FoodCardList = (props) => {
                         foodCard={card}
                         deleteCard={deleteCard}
                         />
-                        
                     )
                 })}
-                
             </ul>
         </div>
     )

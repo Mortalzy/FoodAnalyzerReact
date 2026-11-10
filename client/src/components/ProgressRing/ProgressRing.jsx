@@ -1,11 +1,13 @@
 import './ProgressRing.css'
+import { useMacros } from '../../context/MacrosContext'
 
 const ProgressRing = (props) => {
 
     const {
         dailyCalories,
         totalCalories,
-    } = props
+    } = useMacros()
+
 
     const width = 180
     const height = 180

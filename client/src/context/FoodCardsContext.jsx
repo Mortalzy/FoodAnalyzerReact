@@ -1,19 +1,40 @@
-import { createContext } from "react";
-import useFood from "../hooks/useFood";
+import { createContext, useContext, useState, useEffect } from "react";
 
-const FoodCardsContext = createContext({})
+export const FoodCardsContext = createContext({})
 
-const FoodCardsProvider = (props) => {
-    const {
-        children
-    } = props
+const FoodCardsProvider = ({children}) => {
 
-    const {
-        foodCards,
-        deleteCard,
-        deleteAll,
-        addCard,
-    } = useFood()
+     const [foodCards, setFoodCards] = useState( () => {
+        const storageFoodCards = JSON.parse(localStorage.getItem('foodCards')) ?? []
+        return storageFoodCards
+    })
+
+    const deleteCard = (cardId) => {
+        if (foodCards) {
+            const filteredCards = foodCards.filter( ({id}) => cardId !== id)
+
+            setFoodCards(filteredCards)
+
+            localStorage.setItem('foodCards', JSON.stringify(filteredCards))
+        }
+    }
+
+    const deleteAll = () => {
+        const isConfirmed = confirm('Are you really want to delete all?')
+
+        if(isConfirmed) {
+            setFoodCards([])
+            localStorage.setItem('foodCards', JSON.stringify(foodCards))
+        }
+    }
+
+    const addCard = (newFood) => {
+        setFoodCards(prev => [...prev, newFood])
+    }
+
+    useEffect( () => {
+        localStorage.setItem('foodCards', JSON.stringify(foodCards))
+    }, [foodCards])
 
     return (
         <FoodCardsContext.Provider
@@ -29,7 +50,13 @@ const FoodCardsProvider = (props) => {
     )
 }
 
+const useFoodCards = () => {
+    const context = useContext(FoodCardsContext)
+
+    return context
+}
+
 export {
-    FoodCardsContext,
-    FoodCardsProvider,
+   FoodCardsProvider,
+   useFoodCards,
 }

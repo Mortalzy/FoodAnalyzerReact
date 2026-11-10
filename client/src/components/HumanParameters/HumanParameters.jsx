@@ -1,15 +1,12 @@
 import {CalendarRange, Weight, Ruler, Users } from "lucide-react";
+import { useMacros } from "../../context/MacrosContext";
 
 import './HumanParameters.css'
 
-const HumanParameters = (props) => {
+const HumanParameters = () => {
 
-    const {
-        humanParameters,
-    } = props
-
-    const {age, weight, height, gender} = humanParameters
-
+    const {age, weight, height, gender} = useMacros()
+    
     return (
         <div className="human-parameters">
             <div className="human-parameter">

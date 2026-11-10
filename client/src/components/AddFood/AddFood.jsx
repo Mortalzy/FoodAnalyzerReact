@@ -3,10 +3,14 @@ import Button from '../Button/Button'
 import Loading from '../Loading/Loading'
 import CloseButton from '../CloseButton/CloseButton'
 import { useState } from 'react'
+import { useFoodCards } from '../../context/FoodCardsContext'
 import './AddFood.css'
 
 const AddFood = () => {
+    const {addFood} = useFoodCards()
+
     const [comment, setComment] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const commentLength = comment.length
 
     const handleCommentChange = (event) => {
@@ -30,7 +34,7 @@ const AddFood = () => {
       setImagePreview(imageURL)
     }
 
-    const [isLoading, setIsLoading] = useState(false)
+
 
     const fileToDataUrl = (file) => {
       return new Promise((resolve, reject) => {
@@ -49,7 +53,19 @@ const AddFood = () => {
 
     const openRouterApiKey = ''
 
-    const prompt = `Дай КБЖУ этого блюда. ${comment}` 
+    const prompt = `Посмотри фотографию, проанализируй ее и учти комментарий.
+    Выдай мне КБЖУ название и вес в таком формате JSON формате текстом:
+    {
+      title: string; 
+      weight: number; 
+      calories: number; 
+      proteins: number; 
+      fats: number; 
+      carbs: number;
+    }
+    вместо string, number дай строковые и численные значения соответственно.
+    Убери все markdown и лишний текст который помешает выполнить JSON.parse()
+    ${comment}` 
 
     const fetchToOpenRouter = async (imageUrl) => {
       const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -76,11 +92,35 @@ const AddFood = () => {
     }
 
     const handleAnalyzeFood = async () => {
-      const imageUrl = await fileToDataUrl(image)
+      try {
+        setIsLoading(true)
 
-      const answer = await fetchToOpenRouter(imageUrl)
+        const imageUrl = await fileToDataUrl(image)
 
-      console.log(answer)
+        const answer = await fetchToOpenRouter(imageUrl)
+
+        console.log(answer)
+        const jsonAnswer = JSON.parse(answer)
+        console.log(jsonAnswer)
+
+        const foodCard = {
+          ...jsonAnswer,
+          id: new Date(),
+          foodImg: imagePreview,
+        }
+
+        console.log(foodCard);
+
+        addFood(foodCard)
+      }
+      catch (error) {
+        console.log(error.message);
+        
+      }
+      finally {
+        setIsLoading(false)
+      }
+      
     }
 
 

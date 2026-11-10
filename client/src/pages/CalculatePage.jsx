@@ -8,10 +8,6 @@ const CalculatePage = () => {
             <CalculateForm />
             <NavigationPanel />
         </>
-        
-            
-        
-        
     )
 }
 

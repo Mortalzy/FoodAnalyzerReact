@@ -4,6 +4,8 @@ import OptionCards from '../OptionCards/OptionCards'
 import CalculateFormOptional from '../CalculateFormOptional/CalculateFormOptional'
 import CloseButton from '../CloseButton/CloseButton'
 
+import calculateDailyMacros from '../../utils/calculateDailyMacros'
+
 import { Calculator } from "lucide-react";
 import { useState } from 'react'
 
@@ -23,9 +25,9 @@ const CalculateForm = () => {
         mealsPerDay: 3,
     }
 
-    const [formData, setFormData] = useState({
-        ...defaultParameters,
-    })
+    const [formData, setFormData] = useState(
+        {...defaultParameters},
+    )
 
     const genderOptionCards = {
         label: 'Gender',
@@ -33,7 +35,7 @@ const CalculateForm = () => {
             {title: 'Male', value: 'Male'},
             {title: 'Female', value: 'Female'},
         ]
-    } 
+    }
 
     const activeOptionCards = {
         label: 'Activity level',
@@ -62,17 +64,14 @@ const CalculateForm = () => {
     const handleChange = (event) => {
         const {name, value} = event.target
 
-        setFormData({
-            ...formData,
-            [name]: value,
-        })
+        updateFormData(name, value)
     }
 
     const updateFormData = (name, value) => {
-        setFormData({
-            ...formData,
+        setFormData(prev => ({
+            ...prev,
             [name]:value,
-        })
+        }))
     }
 
     const resetParameters = () => {
@@ -81,34 +80,8 @@ const CalculateForm = () => {
         })
     }
 
-    const calculateMacros = () => {
-        const {age, weight, height, gender, activityCoefficient} = formData
-
-        const bmr = 
-            gender === 'Male' 
-            ?  10 * weight + 6.25 * height - 5 * age + 5
-            :  10 * weight + 6.25 * height - 5 * age - 161
-
-        let dailyCalories = bmr * activityCoefficient
-        let dailyProteins = weight * 2
-        let dailyFats = weight * 0.9
-        let dailyCarbs = (dailyCalories - dailyProteins * 4 - dailyFats * 9) / 4
-
-        dailyCalories = Math.round(dailyCalories)
-        dailyProteins = Math.round(dailyProteins)
-        dailyFats = Math.round(dailyFats)
-        dailyCarbs = Math.round(dailyCarbs)
-
-        return {
-            dailyCalories,
-            dailyProteins,
-            dailyFats,
-            dailyCarbs
-        }
-    }
-
     const handleCalculate = () => {
-        const macros = calculateMacros()
+        const macros = calculateDailyMacros()
 
         console.log(macros)
         localStorage.setItem('dailyMacros', JSON.stringify(macros))
