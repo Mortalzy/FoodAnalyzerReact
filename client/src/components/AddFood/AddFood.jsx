@@ -7,7 +7,7 @@ import { useFoodCards } from '../../context/FoodCardsContext'
 import './AddFood.css'
 
 const AddFood = () => {
-    const {addFood} = useFoodCards()
+    const {addCard} = useFoodCards()
 
     const [comment, setComment] = useState('')
     const [isLoading, setIsLoading] = useState(false)
@@ -34,63 +34,6 @@ const AddFood = () => {
       setImagePreview(imageURL)
     }
 
-
-
-    const fileToDataUrl = (file) => {
-      return new Promise((resolve, reject) => {
-        const fileReader = new FileReader()
-
-        fileReader.onload = () => {
-          resolve(fileReader.result)
-        }
-
-        fileReader.onerro = () => {
-          reject(fileReader.error)
-        }
-        fileReader.readAsDataURL(file)
-      })
-    }
-
-    const openRouterApiKey = ''
-
-    const prompt = `Посмотри фотографию, проанализируй ее и учти комментарий.
-    Выдай мне КБЖУ название и вес в таком формате JSON формате текстом:
-    {
-      title: string; 
-      weight: number; 
-      calories: number; 
-      proteins: number; 
-      fats: number; 
-      carbs: number;
-    }
-    вместо string, number дай строковые и численные значения соответственно.
-    Убери все markdown и лишний текст который помешает выполнить JSON.parse()
-    ${comment}` 
-
-    const fetchToOpenRouter = async (imageUrl) => {
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${openRouterApiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: 'openrouter/free',
-          messages: [
-            { role: 'user',
-              content: [
-                {type: 'text', text: prompt},
-                {type: 'image_url', image_url: {url: imageUrl}}
-              ]},
-          ],
-        }),
-      })
-
-      const data = await response.json()
-
-      return data.choices[0].message.content
-    }
-
     const handleAnalyzeFood = async () => {
       try {
         setIsLoading(true)
@@ -111,7 +54,7 @@ const AddFood = () => {
 
         console.log(foodCard);
 
-        addFood(foodCard)
+        addCard(foodCard)
       }
       catch (error) {
         console.log(error.message);

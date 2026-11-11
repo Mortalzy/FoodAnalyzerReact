@@ -81,7 +81,7 @@ const CalculateForm = () => {
     }
 
     const handleCalculate = () => {
-        const macros = calculateDailyMacros()
+        const macros = calculateDailyMacros(formData)
 
         console.log(macros)
         localStorage.setItem('dailyMacros', JSON.stringify(macros))
