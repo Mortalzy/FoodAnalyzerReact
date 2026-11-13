@@ -32,7 +32,7 @@ const start = async () => {
       console.log(`Server running on http://localhost:${PORT}`)
     })
   } catch (e) {
-  console.log("Error: ", e)
+  console.log("Error: ", e.message)
   }
 }
 

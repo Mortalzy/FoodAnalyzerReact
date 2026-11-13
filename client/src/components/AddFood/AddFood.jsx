@@ -4,6 +4,7 @@ import Loading from '../Loading/Loading'
 import CloseButton from '../CloseButton/CloseButton'
 import { useState } from 'react'
 import { useFoodCards } from '../../context/FoodCardsContext'
+import analyzeFoodApi from '../../api/analyzeFoodApi'
 import './AddFood.css'
 
 const AddFood = () => {
@@ -35,12 +36,11 @@ const AddFood = () => {
     }
 
     const handleAnalyzeFood = async () => {
+      setIsLoading(false)
       try {
         setIsLoading(true)
 
-        const imageUrl = await fileToDataUrl(image)
-
-        const answer = await fetchToOpenRouter(imageUrl)
+        const answer = await analyzeFoodApi(image, comment)
 
         console.log(answer)
         const jsonAnswer = JSON.parse(answer)
@@ -48,7 +48,6 @@ const AddFood = () => {
 
         const foodCard = {
           ...jsonAnswer,
-          id: new Date(),
           foodImg: imagePreview,
         }
 
@@ -62,8 +61,9 @@ const AddFood = () => {
       }
       finally {
         setIsLoading(false)
+        setImage(null)
+        setImagePreview(null)
       }
-      
     }
 
 
