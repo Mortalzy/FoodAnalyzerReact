@@ -36,8 +36,16 @@ const fetchToOpenRouter = async (imageUrl, comment) => {
         ],
         }),
     })
+    
+    const data = await response.json()
 
-    return response
+    if (!response.ok) {
+        throw new Error("fetchToOpenRouter error")
+    }
+
+    const result = JSON.parse(data.choices[0].message.content)
+
+    return result
 }
 
 export default fetchToOpenRouter

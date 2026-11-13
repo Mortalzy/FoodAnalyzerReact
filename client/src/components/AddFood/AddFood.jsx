@@ -35,23 +35,29 @@ const AddFood = () => {
       setImagePreview(imageURL)
     }
 
+    const fileToDataUrl = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+
+        reader.onload = () => resolve(reader.result)
+        reader.onerror = () => reject(reader.error)
+
+        reader.readAsDataURL(file)
+      })
+    }
+
     const handleAnalyzeFood = async () => {
       setIsLoading(false)
       try {
         setIsLoading(true)
 
-        const answer = await analyzeFoodApi(image, comment)
-
-        console.log(answer)
-        const jsonAnswer = JSON.parse(answer)
-        console.log(jsonAnswer)
+        const food = await analyzeFoodApi(image, comment)
+        const foodImg = await fileToDataUrl(image)
 
         const foodCard = {
-          ...jsonAnswer,
-          foodImg: imagePreview,
+          ...food,
+          foodImg: foodImg,
         }
-
-        console.log(foodCard);
 
         addCard(foodCard)
       }

@@ -7,7 +7,7 @@ const analyzeFood = async (req, res) => {
         const file = req.file
         const comment = req.body.comment
 
-        if (file) {
+        if (!file) {
             return res.status(404).json({message: "Добавьте фото блюда"})
         }
 
