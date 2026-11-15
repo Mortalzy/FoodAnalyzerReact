@@ -3,12 +3,14 @@ import AppRoutes from './components/AppRoutes/AppRoutes'
 import {BrowserRouter} from 'react-router-dom'
 import { FoodCardsProvider } from './context/FoodCardsContext'
 import { MacrosContextProvider } from './context/MacrosContext'
+import { AuthContextProvider } from './context/AuthContext'
 
 const App = () => {
   
 
   return (
     <BrowserRouter>
+    <AuthContextProvider>
       <FoodCardsProvider>
         <MacrosContextProvider>
           <AppLayout>
@@ -16,6 +18,7 @@ const App = () => {
           </AppLayout>
         </MacrosContextProvider>
       </FoodCardsProvider>
+    </AuthContextProvider>
     </BrowserRouter>
   )
 }

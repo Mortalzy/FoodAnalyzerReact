@@ -13,6 +13,8 @@ const FoodAnalyzesItem = sequelize.define('food-analyzes-item', {
         allowNull: false,
     },
 
+    
+
     proteins: {
         type: DataTypes.INTEGER,
         defaultValue: 0,

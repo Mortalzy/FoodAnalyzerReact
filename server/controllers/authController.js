@@ -9,6 +9,10 @@ const login = async (req, res) => {
             password
         } = req.body
 
+        if (!email || !password) {
+            return res.status(404).json({message: "Введите роля email и password"})
+        }
+
         const user = await User.findOne({where: {email: email}})
         if(!user) {
             return res.status(404).json({message: "Пользователя с заданной почтой не найдено"})
@@ -45,6 +49,10 @@ const register = async (req, res) => {
             email,
             password,
         } = req.body
+
+        if (!name || !second_name || !email || !password) {
+            return res.status(404).json({message: "Заполните все поля регистрации"})
+        }
 
         const candidate = await User.findOne({where: {email: email}})
         if(candidate) {

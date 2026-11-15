@@ -1,6 +1,7 @@
 import Button from '../Button/Button'
 import { useNavigate } from 'react-router-dom';
 import { Calculator, Plus, User } from "lucide-react";
+import { ROUTES } from '../../constants'; 
 
 import './NavigationPanel.css'
 
@@ -13,7 +14,7 @@ const NavigationPanel = (props) => {
 
     return (
         <nav className="navigation">
-            <Button onClick={() => {navigate('/calculate')}}>
+            <Button onClick={() => {navigate(ROUTES.CALCULATE)}}>
                 <div className='navigation__element'>
                     <Calculator 
                     className='navigation__icon'
@@ -24,7 +25,7 @@ const NavigationPanel = (props) => {
             </Button>
             
             
-            <Button onClick={() => {navigate('/add-food')}}
+            <Button onClick={() => {navigate(ROUTES.ADD_FOOD)}}
             className='button__add'
             colorButton={colorButton}
             >
@@ -32,7 +33,7 @@ const NavigationPanel = (props) => {
             </Button>
             
             
-            <Button>
+            <Button onClick = {() => {navigate(ROUTES.PROFILE)}}>
                 <div className='navigation__element'>
                     <User
                     className='navigation__icon'

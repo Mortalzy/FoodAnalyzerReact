@@ -1,4 +1,4 @@
-import API from "../constants"
+import {API} from "../constants"
 
 const analyzeFoodApi = async (file, comment) => {
     const formData = new FormData()

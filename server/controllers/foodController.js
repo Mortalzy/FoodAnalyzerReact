@@ -28,7 +28,34 @@ const analyzeFood = async (req, res) => {
     catch (e) {
         return res.status(500).json({message: e.message})
     }
-    
 }
+
+const createFood = () => {
+    try {
+        
+    }
+    catch (e) {
+        return res.status(500).json({message: e.message})
+    }
+}
+
+const getFood = () => {
+    try {
+        
+    }
+    catch (e) {
+        return res.status(500).json({message: e.message})
+    }
+}
+
+const deleteFood = () => {
+    try {
+        
+    }
+    catch (e) {
+        return res.status(500).json({message: e.message})
+    }
+}
+
 
 export default analyzeFood

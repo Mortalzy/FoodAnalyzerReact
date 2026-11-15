@@ -2,12 +2,13 @@ import Button from '../Button/Button'
 import { useNavigate } from 'react-router-dom';
 import { X } from "lucide-react";
 import './CloseButton.css'
+import { ROUTES } from '../../constants';
 
 const CloseButton = () => {
     const navigate = useNavigate()
 
     return (
-        <Button onClick={() => {navigate('/')}}>
+        <Button onClick={() => {navigate(ROUTES.MAIN)}}>
             <X
             size={30}
             />
