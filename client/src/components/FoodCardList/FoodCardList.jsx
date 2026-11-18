@@ -1,14 +1,14 @@
 import FoodCard from '../FoodCard/FoodCard'
 import './FoodCardList.css'
 
-import { useContext } from 'react'
-import { FoodCardsContext } from '../../context/FoodCardsContext'
+import {useFoodCards } from '../../context/FoodCardsContext'
 
 const FoodCardList = () => {
     const {
         foodCards,
-        deleteCard
-    } = useContext(FoodCardsContext)
+        deleteFood
+    } = useFoodCards()
+    
     return (
         <div className='wrapper'>
             <ul className='food-card-list'>
@@ -17,7 +17,7 @@ const FoodCardList = () => {
                         <FoodCard
                         key={card.id} 
                         foodCard={card}
-                        deleteCard={deleteCard}
+                        deleteCard={deleteFood}
                         />
                     )
                 })}

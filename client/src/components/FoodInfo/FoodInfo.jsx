@@ -1,12 +1,11 @@
 import {ChevronRight, Trash } from "lucide-react";
+import { useFoodCards } from "../../context/FoodCardsContext";
 import './FoodInfo.css'
 
-const FoodInfo = (props) => {
+const FoodInfo = () => {
+    const {deleteAll, foodCards} = useFoodCards()
     
-    const {
-        totalCards,
-        deleteAll,
-    } = props
+    const totalCards = foodCards.length
 
     return (
         <div className='food-info'>

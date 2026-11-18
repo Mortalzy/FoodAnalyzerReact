@@ -1,3 +1,4 @@
+import {Food} from '../models/index.js'
 import fetchToOpenRouter from "../services/OpenRouterService.js"
 import crypto from 'crypto'
 
@@ -11,7 +12,6 @@ const analyzeFood = async (req, res) => {
             return res.status(404).json({message: "Добавьте фото блюда"})
         }
 
-        console.log(file);
         const {buffer, mimetype} = file
         const imageUrl = `data:${mimetype};base64,${buffer.toString('base64')}`
 
@@ -30,8 +30,57 @@ const analyzeFood = async (req, res) => {
     }
 }
 
-const createFood = () => {
+const createFood = async (req, res) => {
     try {
+        const {
+            title,
+            imageUrl,
+            weight,
+            calories,
+            proteins,
+            fats,
+            carbs,
+        } = req.body
+
+        const user_id = req.user.id
+
+        const food = await Food.create({
+            user_id,
+            title,
+            imageUrl,
+            weight,
+            calories,
+            proteins,
+            fats,
+            carbs,
+        })
+
+        res.status(200).json(food)
+    }
+    catch (e) {
+        return res.status(500).json({message: e.message})
+    }
+}
+
+const getFoods = async (req, res) => {
+    try {
+        const user_id = req.user.id
+
+        const foods = await Food.findAll({where: {
+            user_id: user_id,
+        }})
+
+        res.status(200).json(foods)
+    }
+    catch (e) {
+        return res.status(500).json({message: e.message})
+    }
+}
+
+const deleteFoodById = async (req, res) => {
+    try {
+        const user_id = req.user.id
+        const food_id = req.params.id
         
     }
     catch (e) {
@@ -39,23 +88,22 @@ const createFood = () => {
     }
 }
 
-const getFood = () => {
+const deleteAllFoods = async (req, res) => {
     try {
-        
-    }
-    catch (e) {
-        return res.status(500).json({message: e.message})
-    }
-}
+        await Food.destroy()
 
-const deleteFood = () => {
-    try {
-        
+        return res.status(200).json([])
     }
-    catch (e) {
+    catch(e) {
         return res.status(500).json({message: e.message})
     }
 }
 
 
-export default analyzeFood
+export {
+    analyzeFood,
+    createFood,
+    getFoods,
+    deleteFoodById,
+    deleteAllFoods
+}

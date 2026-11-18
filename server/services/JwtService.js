@@ -12,3 +12,7 @@ export const JwtService = (userId, userEmail) => {
         {expiresIn: '7d'}
     )
 }
+
+export const JwtVerify = (token) => {
+    return jwt.verify(token, process.env.JWT_SECRET_KEY)
+}

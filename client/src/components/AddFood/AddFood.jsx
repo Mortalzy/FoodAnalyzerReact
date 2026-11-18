@@ -8,7 +8,7 @@ import analyzeFoodApi from '../../api/analyzeFoodApi'
 import './AddFood.css'
 
 const AddFood = () => {
-    const {addCard} = useFoodCards()
+    const {addFood} = useFoodCards()
 
     const [comment, setComment] = useState('')
     const [isLoading, setIsLoading] = useState(false)
@@ -56,10 +56,10 @@ const AddFood = () => {
 
         const foodCard = {
           ...food,
-          foodImg: foodImg,
+          imageUrl: foodImg,
         }
 
-        addCard(foodCard)
+        addFood(foodCard)
       }
       catch (error) {
         console.log(error.message);

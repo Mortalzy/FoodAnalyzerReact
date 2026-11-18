@@ -4,6 +4,7 @@ const API = {
     FOOD_ANALYZE: `${defaultApi}/foods/analyze`,
     LOGIN: `${defaultApi}/auth/login`,
     REGISTER: `${defaultApi}/auth/register`,
+    FOOD: `${defaultApi}/foods`
 }
 
 const ROUTES = {

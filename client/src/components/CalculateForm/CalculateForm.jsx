@@ -94,9 +94,6 @@ const CalculateForm = () => {
             height,
             gender
         }
-
-        console.log(humanParameters);
-        localStorage.setItem('humanParameters', JSON.stringify(humanParameters))
     }
 
     return (

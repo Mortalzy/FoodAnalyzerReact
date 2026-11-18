@@ -14,9 +14,9 @@ app.use(express.json())
 
 import authRouter from './routes/authRouter.js'
 import foodRouter from './routes/foodRouter.js'
-import userParameterRouter from './routes/userParameterRouter.js'
+import userParametersRouter from './routes/userParametersRouter.js'
 
-app.use('/api/user-parameters', userParameterRouter)
+app.use('/api/user-parameters', userParametersRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/foods', foodRouter)
 
